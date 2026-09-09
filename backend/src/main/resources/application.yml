@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: dockmind
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dockmind
+    username: dockmind
+    password: dockmind
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  ai:
+    openai:
+      base-url: http://localhost:20128
+      api-key: ${NINEROUTER_API_KEY:sk-cbddacaf26d22071-nh0kci-912671d7}
+
+      chat:
+        options:
+          model: ${OPENAI_CHAT_MODEL:gh/gpt-4o-mini}
+          temperature: 0.2
+
+      embedding:
+        options:
+          model: text-embedding-3-small
+
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+        dimensions: 1536
+        distance-type: cosine_distance
+        index-type: hnsw
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+logging:
+  level:
+    org.springframework.ai: DEBUG
+    org.springframework.web.client.RestClient: DEBUG
+    org.springframework.http.client: DEBUG
