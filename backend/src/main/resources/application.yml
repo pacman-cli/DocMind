@@ -14,7 +14,7 @@ spring:
 
   ai:
     openai:
-      base-url: http://localhost:20128
+      base-url: ${OPENAI_BASE_URL:http://localhost:20128}
       api-key: ${NINEROUTER_API_KEY:sk-cbddacaf26d22071-nh0kci-912671d7}
 
       chat:
@@ -23,6 +23,8 @@ spring:
           temperature: 0.2
 
       embedding:
+        base-url: ${OPENAI_EMBEDDING_BASE_URL:https://proxy.individual.githubcopilot.com}
+        api-key: ${OPENAI_EMBEDDING_API_KEY:tid=cd2127d40c870d988061ab49fc46122c;exp=1789085943;iat=1788999543;sku=free_educational_quota;proxy-ep=proxy.individual.githubcopilot.com;st=dotcom;chat=1;cit=1;editor_preview_features=1;client_byok=0;agent_mode=1;agent_mode_auto_approval=1;mcp=1;blackbird_external_indexing=1;ccr=1;rt=1;ip=103.72.212.54;asn=AS134732;sl=0:6f93ea5387ac511ef159be2fe1892fa4eef702072927165bd3d07189b18d2f37}
         options:
           model: text-embedding-3-small
 

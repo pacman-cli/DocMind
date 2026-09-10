@@ -1,0 +1,16 @@
+# Maven build
+target/
+backend/target/
+*.jar
+*.war
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
