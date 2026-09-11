@@ -23,7 +23,9 @@ public class AiConfig {
 
     @Bean
     public ChatClient chatClient(ChatClient.Builder builder) {
-        return builder.build();
+        return builder
+                .defaultSystem("You are DockMind, an AI developer knowledge assistant. Always respond in English unless specifically instructed otherwise.")
+                .build();
     }
 
     @Bean

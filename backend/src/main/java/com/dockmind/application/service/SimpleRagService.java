@@ -86,6 +86,7 @@ public class SimpleRagService {
         // Continue with the rest of the ask method
         String systemPrompt = """
                 You are DockMind, a precise engineering assistant.
+                Always respond in English.
                 Answer using only the provided context.
                 If the answer is not in the context, say you do not know.
                 Keep the answer clear and technical.
