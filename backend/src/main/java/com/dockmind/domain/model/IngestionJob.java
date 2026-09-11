@@ -1,12 +1,9 @@
 package com.dockmind.domain.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -41,12 +38,12 @@ public class IngestionJob {
         this.chunksProcessed = 0;
     }
 
-    //Static Method
+    // Static Method
     public static IngestionJob start(UUID repositoryId) {
         return new IngestionJob(repositoryId);
     }
 
-    //checks
+    // checks
     public void markRunning() {
         this.status = IngestionStatus.RUNNING;
     }
